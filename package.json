@@ -1,0 +1,15 @@
+{
+  "name": "poc-graphql",
+  "version": "1.0.0",
+  "description": "Simple project to test graphql",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "clear && node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel da Silva Caetano",
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^15.5.3"
+  }
+}

@@ -1,2 +1,3 @@
 # poc-graphql
-Simple project to test graphql
+
+## Simple project to test graphql
