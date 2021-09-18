@@ -16,9 +16,26 @@ userSchema = gql`
   }
 
   type Mutation {
-    create(user: UserInput): User!
-    update(id: ID!, user: UserInput): User!
+    create(user: UserInput): customRespCreate!
+    update(id: ID!, user: UserInput): customRespUpdate!
     delete(id: ID!): User
+  }
+
+  interface customResp {
+    code: Int!
+    msg: String
+  }
+
+  type customRespCreate implements customResp {
+    code: Int!
+    msg: String!
+    data: User!
+  }
+
+  type customRespUpdate implements customResp {
+    code: Int!
+    msg: String!
+    data: User!
   }
 
 `;

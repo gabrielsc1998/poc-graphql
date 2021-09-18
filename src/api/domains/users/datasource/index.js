@@ -8,6 +8,24 @@ class UsersAPI extends RESTDataSource {
     this.baseURL = 'http://localhost:3000';
   }
 
+  _resp = (code, msg, data) => {
+    let resp = {
+      code,
+      msg,
+      data
+    };
+    if(!resp.code) {
+      delete resp.code;
+    }
+    if(!resp.msg) {
+      delete resp.msg;
+    }
+    if(!resp.data) {
+      delete resp.data;
+    }
+    return resp;
+  }
+
   getAll = async () => {
     const users = await this.get(basePath);
     return users.map(async user => ({
@@ -28,18 +46,28 @@ class UsersAPI extends RESTDataSource {
     const users = await this.get(basePath);
     const resp = await this.post(basePath, {...user, id: users.length + 1 });
     if(resp) {
-      return {
-        id: user.id,
-        name: user.name
-      }
+      return this._resp(
+        201, 'Created user', 
+        {
+          id: resp.id,
+          name: resp.name,
+        }
+      );
     }
   }
 
   update = async (id, user) => {
     const resp = await this.put(`${basePath}/${id}`, {...user});
-    return {
-      id: resp.id,
-      name: resp.name
+    if(resp) {
+      return this._resp(
+        200, 'Updated user', 
+        {
+          id: resp.id,
+          name: resp.name,
+        }
+      );
+    } else {
+      return this._resp(400);
     }
   }
 
