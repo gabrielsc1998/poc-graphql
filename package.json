@@ -4,12 +4,18 @@
   "description": "Simple project to test graphql",
   "main": "src/index.js",
   "scripts": {
-    "start": "clear && node src/index.js",
+    "start": "clear & nodemon -e js,json,graphql src/index.js & npx json-server --watch src/api/data/data.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gabriel da Silva Caetano",
   "license": "ISC",
   "dependencies": {
-    "graphql": "^15.5.3"
+    "apollo-datasource-rest": "^3.2.0",
+    "apollo-server": "^3.3.0",
+    "apollo-server-core": "^3.3.0",
+    "graphql": "^15.5.3",
+    "graphql-tools": "^8.2.0",
+    "json-server": "^0.16.3",
+    "nodemon": "^2.0.12"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Gabriel da Silva Caetano"
+    },
+    {
+      "name": "Marina da Costa",
+      "id": 2
+    }
+  ]
+}

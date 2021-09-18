@@ -1,0 +1,26 @@
+const { gql } = require ('apollo-server');
+
+userSchema = gql`
+  type User {
+    id: ID!
+    name: String! 
+  }
+
+  input UserInput {
+    name: String
+  }
+
+  type Query {
+    users: [User]
+    user(id: ID!): User
+  }
+
+  type Mutation {
+    create(user: UserInput): User!
+    update(id: ID!, user: UserInput): User!
+    delete(id: ID!): User
+  }
+
+`;
+
+module.exports = userSchema;
